@@ -17,7 +17,8 @@ def main():
             print("Your password has been encoded and stored!\n")
 
         if user_input == 2:
-            print('The encoded password is ', encode, ', and the original password is ', decode(encode), '.\n', sep='')
+            decoded = decode(encode)
+            print('The encoded password is ', encode, ', and the original password is ', decoded, '.\n', sep='')
 
 
 def encode_password(password):
@@ -32,15 +33,30 @@ def encode_password(password):
     return newpassword
 
 
-def decode(password):
-    decoded_password = ""
-    for digit in password:
-        decoded_digit = int(digit) - 3
-        if decoded_digit < 0:
-            decoded_digit += 10
-        decoded_password += str(decoded_digit)
-    return decoded_password
+# def decode(password):
+#     decoded_password = ""
+#     for digit in password:
+#         decoded_digit = int(digit) - 3
+#         if decoded_digit < 0:
+#             decoded_digit += 10
+#         decoded_password += str(decoded_digit)
+#     return decoded_password
 
+
+def decode(password):
+    decoded_pw = ""
+    for j in password:
+        if j <= '2':
+            if j == '2':
+                decoded_pw += '9'
+            elif j == '1':
+                decoded_pw += '8'
+            elif j == '0':
+                decoded_pw += '7'
+        else:
+            decoded_digit = int(j) - 3
+            decoded_pw += str(decoded_digit)
+    return decoded_pw
 
 
 if __name__ == "__main__":
