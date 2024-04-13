@@ -44,6 +44,7 @@ def encode_password(password):
 #     return decoded_password
 
 
+# Hope Carter
 def decode(password):
     decoded_pw = ""
     for j in password:
